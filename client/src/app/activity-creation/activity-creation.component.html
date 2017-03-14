@@ -1,0 +1,20 @@
+<div class="board">
+  <div>
+    <label for="title"></label>
+    <input type="title" placeholder="title" [(ngModel)]="newActivity.title">
+  </div>
+  <div>
+    <label for="type"></label>
+    <input type="type" placeholder="type" [(ngModel)]="newActivity.type">
+  </div>
+  <div>
+    <label for="city"></label>
+    <input type="city" placeholder="city"[(ngModel)]="newActivity.city">
+  </div>
+  <div>
+    <label for="description"></label>
+    <input type="description" placeholder="description"[(ngModel)]="newActivity.description">
+  </div>
+
+  <button (click)="addActivity()">Submit New Activity</button>
+</div>

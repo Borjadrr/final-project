@@ -1,0 +1,36 @@
+
+<div class="row" *ngIf="activity">
+
+ <h1> Modificar Evento {{activity.title}}</h1>
+ <form (ngSubmit)="submitForm(theForm)" #theForm="ngForm" novalidate>
+   <div class="form-group">
+     <label>  Nombre </label>
+     <input type="text" [(ngModel)]="formInfo.title" name="title" #myTitle="ngModel" required/><span>(Nombre actual: {{activity.title}})</span>
+     <span *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+         Necesitas un nombre para tu evento!
+     </span>
+   </div>
+   <div class="form-group">
+     <label> Tipo </label>
+     <input type="text" [(ngModel)]="formInfo.type" name="type" #myType="ngModel" required/><span>(Tipo actual: {{activity.type}})</span>
+     <span *ngIf="myType.errors && (myType.dirty || myType.touched)">
+         Necesitas seleccionar un tipo de evento!
+     </span>
+   </div>
+   <div class="form-group">
+     <label> Ciudad </label>
+     <input type="textarea" [(ngModel)]="formInfo.city" name="city" #myCity="ngModel" required/><span>(Ciudad actual: {{activity.city}})</span>
+     <span *ngIf="myCity.errors && (myCity.dirty || myCity.touched)">
+         Indica la ciudad donde se celebre el evento!
+     </span>
+   </div>
+   <div class="form-group">
+     <label> Description </label>
+     <input type="textarea" [(ngModel)]="formInfo.description" name="description" #myDescription="ngModel" required/><span>(Description actual: {{activity.description}})</span>
+   </div>
+
+   <button class="btn btn-primary" type='submit'>
+     Modificar evento
+   </button>
+ </form>
+</div>

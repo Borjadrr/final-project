@@ -1,0 +1,18 @@
+<div class="row">
+  <h1> Phone details </h1>
+    <a [routerLink]="['']"> Back to list </a>
+  <div *ngIf="activity">
+    <div class="pic">
+       <img src="{{ activity.image }} " alt="" class="profile-pic">
+  </div>
+
+  <h3> {{ activity.title }} </h3>
+    <p> {{ activity.type }} </p>
+    <p> {{ activity.city }} </p>
+    <p> {{ activity.description }}</p>
+
+  <button (click)="deleteActivity()"> Borrar </button>
+  <button [routerLink]="['/activity/edit/']+[activity._id]">Editar </button>
+
+  </div>
+</div>

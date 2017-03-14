@@ -1,0 +1,18 @@
+<div class="row headerclass">
+  <div class="col-sm-8 web-name">
+    <a [routerLink]="['/']">EVENT PLAY</a>
+  </div>
+  <div *ngIf="!user" class="col-sm-4 nav">
+    <ul>
+    <li><a [routerLink]="['/signup']">Registro</a></li>
+    <li><a  [routerLink]="['/login']">Iniciar sesión</a></li>
+    </ul>
+  </div>
+  <div *ngIf="user" class="col-sm-4 nav">
+    <ul>
+    <li><a [routerLink]="['/signup']">Hola {{user.username}}!</a></li>
+    <li><a  [routerLink]="['/activity']">Crear un evento</a></li>
+    <li><a (click)="logout()"> Salir </a></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="row">
+    <div class="wrapper form">
+      <form *ngIf="!user" class="form-signin">
+        <h2 class="form-signin-heading">Registrate</h2>
+
+        <input type="text" class="form-control" name="username" [(ngModel)]="formInfo.username" placeholder="Username" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" [(ngModel)]="formInfo.password" placeholder="Password" required="" />
+
+        <button class="btn btn-lg btn-primary btn-block" (click)="signup()">registrate</button>
+        <p>¿ya estas registrado? <a [routerLink]="['/login']">entra</a></p>
+
+      </form>
+    </div>
+
+
+  <div *ngIf="user">
+    <h2> You are now logged in as {{ user.username }}!! </h2>
+    <button (click)="logout()"> logout </button>
+  </div>
+
+  <p class="error"> {{ error }} </p>
+</div>

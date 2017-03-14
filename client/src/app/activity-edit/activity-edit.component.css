@@ -1,0 +1,11 @@
+.row{
+  position: relative;
+  top: 100px;
+  margin-left: 5%;
+  width: 400px;
+  height: 350px;
+}
+.btn{
+  background-color: #0099a6;
+  border: #0099a6;
+}
