@@ -12,4 +12,4 @@ const usersSchema = new Schema({
     updatedAt: "updated_at"
   }
 });
-module.exports = mongoose.model('Users', usersSchema);
+module.exports = mongoose.model('User', usersSchema);

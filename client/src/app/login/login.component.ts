@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [ SessionService ]
 })
 export class LoginComponent implements OnInit {
 
@@ -31,7 +30,6 @@ export class LoginComponent implements OnInit {
     this.session.login(this.formInfo)
       .subscribe(
         (user) => {
-          console.log("USER IS LOGGED IN!!!");
           this.successCb(user);
           this.router.navigate([''])
         },

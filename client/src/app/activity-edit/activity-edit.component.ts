@@ -3,6 +3,7 @@ import { ActivitiesService } from '../services/activities/activities.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-activity-edit',
   templateUrl: './activity-edit.component.html',
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   providers: [ActivitiesService]
 })
 export class ActivityEditComponent implements OnInit {
+
   formInfo = {
     title: '',
     type: '',
@@ -18,10 +20,12 @@ export class ActivityEditComponent implements OnInit {
   };
   activity: any;
   activityID: string;
+
   constructor(
     private service: ActivitiesService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
   ) { }
 
   ngOnInit() {
@@ -29,7 +33,9 @@ export class ActivityEditComponent implements OnInit {
      this.activityID = params['id'];
      this.getActivityDetails(this.activityID);
    });
-  }
+   
+    }
+
 
   getActivityDetails(id) {
    this.service.get(id)
@@ -46,5 +52,4 @@ export class ActivityEditComponent implements OnInit {
       });
 
     }
-
 }

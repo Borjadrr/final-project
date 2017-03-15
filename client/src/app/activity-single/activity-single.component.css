@@ -2,3 +2,12 @@
   margin-left: 5%;
 
 }
+
+.btn-custom {
+  background-color: #0099a6;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00a5ff", endColorstr="#006399");
+  border-color: #0099a6;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from '../services/activities/activities.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { SessionService } from '../services/auth/session.service';
 
 
 @Component({
@@ -12,26 +13,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActivitySingleComponent implements OnInit {
   activity: any;
+  user: any;
+  error: string;
+  activityID: string;
 
   constructor(
     private service: ActivitiesService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private session: SessionService
 
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.getActivityDetails(params['id']);
-    });
-
+     this.activityID = params['id'];
+     this.getActivityDetails(this.activityID);
+   });
+    this.session.isLoggedIn()
+      .subscribe(
+        (user) => this.successCb(user)
+      );
   }
 
   getActivityDetails(id) {
+
    this.service.get(id)
      .subscribe((activity) => {
        this.activity = activity;
+       console.log("hola",this.activity.participants[0].username)
      });
+
  }
 
  deleteActivity() {
@@ -41,5 +53,16 @@ export class ActivitySingleComponent implements OnInit {
         this.router.navigate(['']);
       });
     }
+  }
+  addParticipant(){
+    this.service.add(this.activityID, this.user).subscribe(
+      (activity) =>
+      this.router.navigate(['/activity/'+this.activityID])
+    );
+  }
+
+  successCb(user) {
+    this.user = user;
+    this.error = null;
   }
 }

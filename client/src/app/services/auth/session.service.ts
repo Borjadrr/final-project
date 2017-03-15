@@ -14,14 +14,12 @@ export class SessionService {
   options : Object = { withCredentials : true };
 
   constructor(private http: Http) {
-    console.log("created session SERVICE");
     this.loginEmitter = new EventEmitter();
   }
 
   handleError(e) {
     console.error("Error:");
     console.log(e);
-
     return Observable.throw(e.json().message);
   }
 
@@ -35,7 +33,7 @@ export class SessionService {
     return this.http.post(`${BASEURL}/api/user/login`, user, this.options)
       .map((user) => {
         console.log("Emtting login event....");
-        this.loginEmitter.emit({data:"HLOA"});
+        this.loginEmitter.emit({user});
         console.log("ahahhahaa....");
         return user;
       })

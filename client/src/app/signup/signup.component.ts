@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/auth/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,10 @@ export class SignupComponent implements OnInit {
   error: string;
   privateData: any = '';
 
-  constructor(private session: SessionService) { }
+  constructor(
+    private session: SessionService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
@@ -37,7 +41,10 @@ export class SignupComponent implements OnInit {
   signup() {
     this.session.signup(this.formInfo)
       .subscribe(
-        (user) => this.successCb(user),
+        (user) =>{
+          this.successCb(user);
+          this.router.navigate([''])
+        },
         (err) => this.errorCb(err)
       );
   }

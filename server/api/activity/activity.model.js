@@ -20,6 +20,10 @@ const activitiesSchema = new mongoose.Schema({
     type: String,
     require: false
   },
+  participants: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
   image: {
         type: String, default: 'http://photos1.meetupstatic.com/photos/event/1/e/f/2/event_192127922.jpeg'
   }

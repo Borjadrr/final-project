@@ -36,5 +36,11 @@ export class ActivitiesService {
     return this.http.delete(`${this.BASE_URL}/api/activity/${id}`)
       .map((res) => res.json());
   }
+  add(id, user) {
+    console.log("current user:",user,"id",id)
+    return this.http.post(`${this.BASE_URL}/api/activity/${id}`, user)
+      .map((res) => res.json())
+      .catch(this.handleError);
+  }
 
 }

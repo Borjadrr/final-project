@@ -84,3 +84,9 @@ exports.authUser = function(req, res) {
 
   return res.status(403).json({ message: 'Unauthorized' });
 };
+/*
+exports.getUser = function(req, res) {
+	const userId = req.body.userId;
+	console.log(userId);
+};
+*/

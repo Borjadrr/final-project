@@ -9,5 +9,7 @@ router.post('/signup', controller.createUser);
 router.post('/login', controller.logUser);
 router.post('/logout', controller.logOutUser);
 router.get('/loggedin', controller.authUser);
-
+/*
+router.get('/activity/:id', controller.getName);
+*/
 module.exports = router;
