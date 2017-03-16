@@ -1,7 +1,9 @@
-<div class="board"></div>
+<div class="row">
+<div class="board">
+</div>
+
 <div class="event-board">
 
-<div class="row">
   <div *ngFor="let activity of activities">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
@@ -13,8 +15,8 @@
         <p> {{ activity.type }} </p>
         <p> {{ activity.city }} </p>
         <p> {{ activity.description }}</p>
-        <a [routerLink]="['activity', activity._id]" class="btn btn-primary">Ir al evento</a>
-         
+        <button [routerLink]="['activity', activity._id]" class="btn btn-success btn-edit" [routerLink]="['/activity/edit/']+[activity._id]"><span style="margin-right:20px"  aria-hidden="true"></span> Ir al evento</button>
+
       </div>
     </div>
   </div>

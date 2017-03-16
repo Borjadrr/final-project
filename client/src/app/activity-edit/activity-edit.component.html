@@ -1,36 +1,31 @@
+<div class="container">
+  <div class="row" *ngIf="activity">
+    <a [routerLink]="['']"> Back to list </a>
+    <h1>Modificar Evento</h1>
+    <div class="col-xs-12 col-sm-12 col-md-4 well well-sm ">
+      <legend><a><i class="glyphicon glyphicon-globe"></i></a> {{activity.title}}</legend>
+      <form class="form" role="form" (ngSubmit)="submitForm(theForm)" #theForm="ngForm" novalidate>
 
-<div class="row" *ngIf="activity">
-  <a [routerLink]="['']"> Back to list </a>
- <h1> Modificar Evento {{activity.title}}</h1>
- <form (ngSubmit)="submitForm(theForm)" #theForm="ngForm" novalidate>
-   <div class="form-group">
-     <label>  Nombre </label>
-     <input type="text" [(ngModel)]="formInfo.title" name="title" #myTitle="ngModel" required/><span>(Nombre actual: {{activity.title}})</span>
-     <span *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
-         Necesitas un nombre para tu evento!
-     </span>
-   </div>
-   <div class="form-group">
-     <label> Tipo </label>
-     <input type="text" [(ngModel)]="formInfo.type" name="type" #myType="ngModel" required/><span>(Tipo actual: {{activity.type}})</span>
-     <span *ngIf="myType.errors && (myType.dirty || myType.touched)">
-         Necesitas seleccionar un tipo de evento!
-     </span>
-   </div>
-   <div class="form-group">
-     <label> Ciudad </label>
-     <input type="textarea" [(ngModel)]="formInfo.city" name="city" #myCity="ngModel" required/><span>(Ciudad actual: {{activity.city}})</span>
-     <span *ngIf="myCity.errors && (myCity.dirty || myCity.touched)">
-         Indica la ciudad donde se celebre el evento!
-     </span>
-   </div>
-   <div class="form-group">
-     <label> Description </label>
-     <input type="textarea" [(ngModel)]="formInfo.description" name="description" #myDescription="ngModel" required/><span>(Description actual: {{activity.description}})</span>
-   </div>
+        <input class="form-control" placeholder="Nombre del evento" type="text" [(ngModel)]="formInfo.title" name="title" #myTitle="ngModel" required/><span>(Nombre actual: {{activity.title}})</span>
+          <span *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+            Necesitas indicar un nombre para tu evento!
+          </span>
 
-   <button class="btn btn-primary" type='submit'>
-     Modificar evento
-   </button>
- </form>
+        <input class="form-control" placeholder="Tipo de evento" type="textarea" [(ngModel)]="formInfo.type" name="type" #myType="ngModel" required/><span>(Tipo actual: {{activity.type}})</span>
+          <span *ngIf="myType.errors && (myType.dirty || myType.touched)">
+            Necesitas indicar una categoría de evento!
+          </span>
+
+        <input class="form-control" placeholder="Ciudad del evento" type="text" [(ngModel)]="formInfo.city" name="city" #muCity="ngModel" required/><span>(Ciudad actual: {{activity.city}})</span>
+          <span *ngIf="muCity.errors && (muCity.dirty || muCity.touched)">
+            Necesitas indicar una ciudad para tu evento!
+          </span>
+
+        <input [(ngModel)]="formInfo.description" name="description" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Descripción" type="textarea"/><span>(Description actual: {{activity.description}})</span>
+
+        <button class="btn btn-success" type="submit" ><span style="margin-right:20px" aria-hidden="true"></span> Modificar evento</button>
+
+      </form>
+    </div>
+  </div>
 </div>

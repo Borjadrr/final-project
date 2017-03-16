@@ -1,6 +1,5 @@
 body { padding-top:30px; }
 .form-control { margin-bottom: 10px; }
-
 textarea {
    resize: none;
 }
@@ -12,13 +11,12 @@ textarea {
 
 .row{
   margin: 50px;
-
 }
 
-.btn{
-  background-color: #0099a6;
-  border: #0099a6;
-}
 .pic{
   margin: 8px;
 }
+
+.btn-success{width:100%;border-radius:0px;}
+.btn-minus{cursor:pointer;font-size:7px;display:flex;align-items:center;padding:5px;padding-left:10px;padding-right:10px;border:1px solid gray;border-radius:2px;border-right:0px;}
+.btn-plus{cursor:pointer;font-size:7px;display:flex;align-items:center;padding:5px;padding-left:10px;padding-right:10px;border:1px solid gray;border-radius:2px;border-left:0px;}
