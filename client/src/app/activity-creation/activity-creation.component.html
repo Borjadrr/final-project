@@ -1,42 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-4 well well-sm ">
+      <legend><a><i class="glyphicon glyphicon-globe"></i></a> Nuevo evento</legend>
+      <form class="form" role="form" (ngSubmit)="submitForm(theForm)" #theForm="ngForm" novalidate>
+        <input class="form-control" placeholder="Nombre del evento" type="text" [(ngModel)]="formInfo.title" name="title" #myTitle="ngModel" required/>
+          <span *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+            Necesitas indicar un nombre para tu evento!
+          </span>
 
-<div class="row">
+        <input class="form-control" placeholder="Tipo de evento" type="textarea" [(ngModel)]="formInfo.type" name="type" #myType="ngModel" required/>
+          <span *ngIf="myType.errors && (myType.dirty || myType.touched)">
+            Necesitas indicar una categoría de evento!
+          </span>
 
+        <input class="form-control" placeholder="Ciudad del evento" type="text" [(ngModel)]="formInfo.city" name="city" #muCity="ngModel" required/>
+          <span *ngIf="muCity.errors && (muCity.dirty || muCity.touched)">
+            Necesitas indicar una ciudad para tu evento!
+          </span>
 
-  <h1> Nuevo evento </h1>
+        <input [(ngModel)]="formInfo.description" name="description" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Descripción" type="textarea"/>
 
-  <form (ngSubmit)="submitForm(theForm)" #theForm="ngForm" novalidate>
-    <div class="form-group">
-      <label> Title </label>
-      <input type="text" [(ngModel)]="formInfo.title" name="title" #myTitle="ngModel" required/>
-      <span *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
-          Necesitas indicar un nombre para tu evento!
-      </span>
-    </div>
-    <div class="form-group">
-      <label> Type </label>
-      <input type="textarea" [(ngModel)]="formInfo.type" name="type" #myType="ngModel" required/>
-      <span *ngIf="myType.errors && (myType.dirty || myType.touched)">
-          Necesitas indicar una categoría de evento!
-      </span>
-    </div>
-    <div class="form-group">
-      <label> City </label>
-      <input type="text" [(ngModel)]="formInfo.city" name="city" #muCity="ngModel" required/>
-      <span *ngIf="muCity.errors && (muCity.dirty || muCity.touched)">
-          Necesitas indicar una ciudad para tu evento!
-      </span>
-    </div>
-    <div class="form-group">
-      <label> Descripción </label>
-      <input type="text" [(ngModel)]="formInfo.description" name="description"/>
-    </div>
-    <div class="form-group">
-      <label> Image </label>
-      <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
-    </div>
+        <input class="pic" type="file" name="file" ng2FileSelect [uploader]="uploader"/>
 
-    <br><button class="btn btn-primary" type='submit'>
-      Crea el evento
-    </button>
-  </form>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          Crear evento
+        </button>
+
+      </form>
+    </div>
   </div>
+</div>

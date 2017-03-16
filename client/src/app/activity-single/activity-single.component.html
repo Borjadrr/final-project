@@ -1,22 +1,41 @@
-<div class="row">
-  <h1> Phone details </h1>
-    <a [routerLink]="['']"> Back to list </a>
-  <div *ngIf="activity">
 
-  <img id="pic"[src]="'http://localhost:3000/images/'+ activity.image" alt="" class="profile-pic">
+<div class="container">
+	<div class="row">
+    <div *ngIf="activity">
+     <div class="col-xs-4 item-photo">
+        <img style="max-width:100%;" [src]="'http://localhost:3000/images/'+ activity.image" />
 
+      </div>
 
-  <h3> {{ activity.title }} </h3>
-    <p> {{ activity.type }} </p>
-    <p> {{ activity.city }} </p>
-    <p> {{ activity.description }}</p>
-    <div *ngFor="let participant of activity.participants">
-      <p> {{ participant.username }}</p>
-    </div>
+      <div class="col-xs-5" style="border:0px solid gray">
 
+        <h3>{{ activity.title }}</h3>
 
-  <button class="btn-custom"(click)="deleteActivity()"> Borrar </button>
-  <button class="btn-custom" [routerLink]="['/activity/edit/']+[activity._id]">Editar </button>
-  <button class="btn-custom"(click)="addParticipant()"> Apuntate! </button>
+                    <div class="section">
+                      <p> {{ activity.type }} </p>
+                      <p> {{ activity.city }} </p>
+                      <p> {{ activity.description }}</p>
+
+                    </div>
+
+                    <div class="section" style="padding-bottom:20px;">
+                      <div *ngFor="let participant of activity.participants">
+                        <p> {{ participant.username }}</p>
+                      </div>
+
+                    </div>
+
+                    <!-- Botones de compra -->
+                    <div class="section" style="padding-bottom:20px;">
+
+                        <button class="btn btn-success"(click)="deleteActivity()"><span style="margin-right:20px"  aria-hidden="true"></span> Borra</button>
+                        <button class="btn btn-success" [routerLink]="['/activity/edit/']+[activity._id]"><span style="margin-right:20px"  aria-hidden="true"></span> Editar</button>
+                        <button class="btn btn-success" (click)="addParticipant()" ><span style="margin-right:20px" class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Apuntarse!</button>
+                        <h6><a [routerLink]="['']"><span style="cursor:pointer;"></span> Back to list</a></h6>
+
+                    </div>
+                </div>
+
+	</div>
   </div>
 </div>

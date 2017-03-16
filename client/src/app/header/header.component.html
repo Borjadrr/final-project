@@ -1,18 +1,21 @@
-<div class="row headerclass">
-  <div class="col-sm-8 web-name">
-    <a [routerLink]="['/']">HANG OUT</a>
-  </div>
-  <div *ngIf="!user" class="col-sm-4 nav">
-    <ul>
-    <li><a [routerLink]="['/signup']">Registro</a></li>
-    <li><a  [routerLink]="['/login']">Iniciar sesión</a></li>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img id="logo" src="../../assets/logo1.png" height="30" alt="">
+      </a>
+    </div>
+
+    <ul *ngIf="!user" class="nav navbar-nav navbar-right">
+      <li><a [routerLink]="['/signup']"><span class="glyphicon glyphicon-user"></span> Registro</a></li>
+      <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
     </ul>
-  </div>
-  <div *ngIf="user" class="col-sm-4 nav">
-    <ul>
-    <li><a [routerLink]="['/signup']">Hola {{user.username}}!</a></li>
-    <li><a  [routerLink]="['/activity']">Crear un evento</a></li>
-    <li><a (click)="logout()"> Salir </a></li>
+
+    <ul *ngIf="user" class="nav navbar-nav navbar-right">
+      <li><a><span class="glyphicon glyphicon-user"></span> Hola {{user.username}}!</a></li>
+      <li><a [routerLink]="['/activity']"><span class="glyphicon"></span> Crear un evento</a></li>
+      <li><a (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
     </ul>
+
   </div>
-</div>
+</nav>

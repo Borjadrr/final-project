@@ -1,29 +1,9 @@
-.body {
-  margin:0;
-  padding: 0;
-}
-.headerclass{
-  background-color: #0099a6;
-  width: 105%;
-  height: 60px;
-  position: fixed;
-  z-index: 1;
+
+#logo{
+  top:10px;
 }
 
-.web-name{
-  color: white;
-  margin-top: 20px;
-  left: 20px;
-}
-
-.nav{
-  margin-top: 20px;
-}
-
-li {
-  display: inline;
-  margin-left: 5px;
-}
-a {
-  color: white;
+.navbar{
+  margin: 0px;
+  padding: 0px;
 }

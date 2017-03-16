@@ -16,6 +16,7 @@ import { ActivityCreationComponent } from './activity-creation/activity-creation
 import { ActivitySingleComponent } from './activity-single/activity-single.component';
 import { ActivityEditComponent } from './activity-edit/activity-edit.component';
 import { FileSelectDirective } from "ng2-file-upload";
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '',  component: LandingComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
     ActivityCreationComponent,
     ActivitySingleComponent,
     ActivityEditComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
