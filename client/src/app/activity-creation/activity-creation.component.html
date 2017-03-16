@@ -1,20 +1,42 @@
-<div class="board">
-  <div>
-    <label for="title"></label>
-    <input type="title" placeholder="title" [(ngModel)]="newActivity.title">
-  </div>
-  <div>
-    <label for="type"></label>
-    <input type="type" placeholder="type" [(ngModel)]="newActivity.type">
-  </div>
-  <div>
-    <label for="city"></label>
-    <input type="city" placeholder="city"[(ngModel)]="newActivity.city">
-  </div>
-  <div>
-    <label for="description"></label>
-    <input type="description" placeholder="description"[(ngModel)]="newActivity.description">
-  </div>
 
-  <button (click)="addActivity()">Submit New Activity</button>
-</div>
+<div class="row">
+
+
+  <h1> Nuevo evento </h1>
+
+  <form (ngSubmit)="submitForm(theForm)" #theForm="ngForm" novalidate>
+    <div class="form-group">
+      <label> Title </label>
+      <input type="text" [(ngModel)]="formInfo.title" name="title" #myTitle="ngModel" required/>
+      <span *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+          Necesitas indicar un nombre para tu evento!
+      </span>
+    </div>
+    <div class="form-group">
+      <label> Type </label>
+      <input type="textarea" [(ngModel)]="formInfo.type" name="type" #myType="ngModel" required/>
+      <span *ngIf="myType.errors && (myType.dirty || myType.touched)">
+          Necesitas indicar una categoría de evento!
+      </span>
+    </div>
+    <div class="form-group">
+      <label> City </label>
+      <input type="text" [(ngModel)]="formInfo.city" name="city" #muCity="ngModel" required/>
+      <span *ngIf="muCity.errors && (muCity.dirty || muCity.touched)">
+          Necesitas indicar una ciudad para tu evento!
+      </span>
+    </div>
+    <div class="form-group">
+      <label> Descripción </label>
+      <input type="text" [(ngModel)]="formInfo.description" name="description"/>
+    </div>
+    <div class="form-group">
+      <label> Image </label>
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
+    </div>
+
+    <br><button class="btn btn-primary" type='submit'>
+      Crea el evento
+    </button>
+  </form>
+  </div>

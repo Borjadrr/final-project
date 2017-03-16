@@ -41,7 +41,6 @@ export class ActivitySingleComponent implements OnInit {
    this.service.get(id)
      .subscribe((activity) => {
        this.activity = activity;
-       console.log("hola",this.activity.participants[0].username)
      });
 
  }

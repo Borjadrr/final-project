@@ -25,7 +25,7 @@ const activitiesSchema = new mongoose.Schema({
     ref: 'User'
   }],
   image: {
-        type: String, default: 'http://photos1.meetupstatic.com/photos/event/1/e/f/2/event_192127922.jpeg'
+        type: String, default: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=250%C3%97250&w=250&h=250'
   }
 }, {
   timestamps: {

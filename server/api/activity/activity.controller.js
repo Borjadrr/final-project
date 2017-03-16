@@ -1,27 +1,37 @@
 const _ = require('lodash');
 mongoose = require('mongoose');
+const express = require("express");
+const authController = express.Router();
 activityModel = require('./activity.model');
 userModel = require('../user/user.model');
+const upload = require('../../configs/multer');
 
 
-exports.createActivity = function(req, res, next) {
+exports.createActivity = (req, res) => {
+    console.log("entra en createActivity", req.file);
     const newActivity = new activityModel({
         title: req.body.title,
         type: req.body.type,
         city: req.body.city,
-        description: req.body.description
+        description: req.body.description,
+        image: `${req.file.filename}`
     });
-
-    newActivity.save(function(err, activity) {
+    newActivity.save((err) => {
         if (err) {
-            console.log(err);
-            return res.send(500);
+          console.log("ERROR:",err);
+          return res.send(err);
+
         }
-        res.json({
-            message: "bieeeen"
+
+        return res.status(200).json({
+          message: 'New Event created!',
+          newActivity: newActivity
         });
-    });
-};
+      });
+    };
+
+
+
 
 exports.showActivities = function(req, res, next) {
     activityModel.find({})
@@ -57,7 +67,7 @@ exports.addParticipants = function(req, res) {
     		        $push: {
     		            participants: req.body._id
     		        }
-    		})
+    		});
       } else {
         throw 'User is already in this activity';
       }

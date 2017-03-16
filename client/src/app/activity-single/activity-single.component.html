@@ -2,16 +2,18 @@
   <h1> Phone details </h1>
     <a [routerLink]="['']"> Back to list </a>
   <div *ngIf="activity">
-    <div class="pic">
-       <img src="{{ activity.image }} " alt="" class="profile-pic">
-  </div>
+
+  <img id="pic"[src]="'http://localhost:3000/images/'+ activity.image" alt="" class="profile-pic">
+
 
   <h3> {{ activity.title }} </h3>
     <p> {{ activity.type }} </p>
     <p> {{ activity.city }} </p>
     <p> {{ activity.description }}</p>
-    
-    <p> {{ activity.participants[0].username }}</p>
+    <div *ngFor="let participant of activity.participants">
+      <p> {{ participant.username }}</p>
+    </div>
+
 
   <button class="btn-custom"(click)="deleteActivity()"> Borrar </button>
   <button class="btn-custom" [routerLink]="['/activity/edit/']+[activity._id]">Editar </button>

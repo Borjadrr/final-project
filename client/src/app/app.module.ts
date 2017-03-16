@@ -15,6 +15,7 @@ import { AlertModule } from 'ng2-bootstrap';
 import { ActivityCreationComponent } from './activity-creation/activity-creation.component';
 import { ActivitySingleComponent } from './activity-single/activity-single.component';
 import { ActivityEditComponent } from './activity-edit/activity-edit.component';
+import { FileSelectDirective } from "ng2-file-upload";
 
 const routes: Routes = [
   { path: '',  component: LandingComponent },
@@ -34,8 +35,8 @@ const routes: Routes = [
     LandingComponent,
     ActivityCreationComponent,
     ActivitySingleComponent,
-    ActivityEditComponent
-
+    ActivityEditComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

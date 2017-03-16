@@ -5,9 +5,9 @@
   <div *ngFor="let activity of activities">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <div class="pic">
-      <img src="{{ activity.image }} " alt="" class="profile-pic">
-      </div>
+
+      <img id="pic"[src]="'http://localhost:3000/images/'+ activity.image" alt="" class="profile-pic">
+      
       <div class="caption">
         <h3> {{ activity.title }} </h3>
         <p> {{ activity.type }} </p>
