@@ -7,7 +7,7 @@
         <input type="text" class="form-control" name="username" [(ngModel)]="formInfo.username" placeholder="Username" required="" autofocus="" />
         <input type="password" class="form-control" name="password" [(ngModel)]="formInfo.password" placeholder="Password" required="" />
 
-        <button class="btn btn-lg btn-primary btn-block" (click)="signup()">registrate</button>
+        <button class="btn btn-success btn-edit" (click)="signup()">registrate</button>
         <p>¿ya estas registrado? <a [routerLink]="['/login']">entra</a></p>
 
       </form>

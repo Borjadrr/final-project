@@ -7,7 +7,7 @@
         <input type="text" class="form-control" name="username" [(ngModel)]="formInfo.username" placeholder="Username" required="" autofocus="" />
         <input type="password" class="form-control" name="password" [(ngModel)]="formInfo.password" placeholder="Password" required="" />
 
-        <button class="btn btn-lg btn-primary btn-block" (click)="login()">entra</button>
+        <button class="btn btn-success btn-edit" (click)="login()">entra</button>
         <p>¿no tienes cuenta? <a [routerLink]="['/signup']">Registrate</a></p>
 
       </form>
@@ -16,7 +16,7 @@
 
   <div *ngIf="user">
     <h2> You are now logged in as {{ user.username }}!! </h2>
-    <button (click)="logout()"> logout </button>
+    <button (click)="logout()" class="btn btn-success btn-edit"> logout </button>
   </div>
 
   <p class="error"> {{ error }} </p>
