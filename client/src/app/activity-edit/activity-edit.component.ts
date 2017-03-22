@@ -33,7 +33,7 @@ export class ActivityEditComponent implements OnInit {
      this.activityID = params['id'];
      this.getActivityDetails(this.activityID);
    });
-   
+
     }
 
 
@@ -45,7 +45,6 @@ export class ActivityEditComponent implements OnInit {
  }
 
   submitForm(theForm){
-    console.log(theForm);
     this.service.edit(this.activityID,this.formInfo)
       .subscribe((activity) => {
        this.router.navigate(['/activity/'+this.activityID]);

@@ -41,7 +41,6 @@ exports.createUser = function(req, res, next) {
               message: 'something went wrong :('
             });
           }
-					console.log(req.user);
           res.status(200).json(req.user);
         });
       }
@@ -65,7 +64,6 @@ exports.logUser = function(req, res, next) {
           message: 'something went wrong :('
         });
       }
-			console.log("request user:", req.user);
       res.status(200).json(req.user);
     });
   })(req, res, next);
@@ -84,9 +82,3 @@ exports.authUser = function(req, res) {
 
   return res.status(403).json({ message: 'Unauthorized' });
 };
-/*
-exports.getUser = function(req, res) {
-	const userId = req.body.userId;
-	console.log(userId);
-};
-*/

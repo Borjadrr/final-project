@@ -8,7 +8,6 @@ const upload = require('../../configs/multer');
 
 
 exports.createActivity = (req, res) => {
-    console.log("entra en createActivity", req.file);
     const newActivity = new activityModel({
         title: req.body.title,
         type: req.body.type,
@@ -18,7 +17,6 @@ exports.createActivity = (req, res) => {
     });
     newActivity.save((err) => {
         if (err) {
-          console.log("ERROR:",err);
           return res.send(err);
 
         }
@@ -58,10 +56,8 @@ exports.showActivity = function(req, res) {
 
 exports.addParticipants = function(req, res) {
     const activityId = req.params.id;
-    console.log("ihhi",req.body);
     activityModel.findById(activityId)
     .then((activity) => {
-      console.log(activity.participants);
       if(activity.participants.indexOf(req.body._id) == -1){
         return activityModel.findByIdAndUpdate(activityId, {
     		        $push: {
@@ -73,11 +69,9 @@ exports.addParticipants = function(req, res) {
       }
     })
 		.then((result) => {
-			console.log("done!");
 			res.status(200).json({message:"Paticipant added to activity"});
 		})
 		.catch((err) => {
-			console.error(err);
 			res.status(500).json({message:"Error adding participant", error:err});
 		});
 };

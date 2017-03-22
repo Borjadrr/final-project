@@ -37,7 +37,6 @@ export class ActivitiesService {
       .map((res) => res.json());
   }
   add(id, user) {
-    console.log("current user:",user,"id",id)
     return this.http.post(`${this.BASE_URL}/api/activity/${id}`, user)
       .map((res) => res.json())
       .catch(this.handleError);

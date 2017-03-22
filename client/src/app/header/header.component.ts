@@ -14,8 +14,6 @@ export class HeaderComponent implements OnInit {
   constructor(public session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    console.log("HEADER COMPONENT");
-    this.session.getLoginEventEmitter().subscribe((user) => console.log("LOOGGIN"));
     this.session.isLoggedIn().subscribe((user) => this.successCb(user));
   }
 

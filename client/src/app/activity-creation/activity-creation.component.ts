@@ -40,7 +40,6 @@ export class ActivityCreationComponent implements OnInit {
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
         this.feedback = JSON.parse(response).message;
-        console.log('activity created:', JSON.parse(response));
         this.router.navigate(['']);
       };
       this.uploader.onErrorItem = (item, response, status, headers) => {

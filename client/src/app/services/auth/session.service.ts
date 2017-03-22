@@ -18,8 +18,6 @@ export class SessionService {
   }
 
   handleError(e) {
-    console.error("Error:");
-    console.log(e);
     return Observable.throw(e.json().message);
   }
 
@@ -32,9 +30,7 @@ export class SessionService {
   login(user) {
     return this.http.post(`${BASEURL}/api/user/login`, user, this.options)
       .map((user) => {
-        console.log("Emtting login event....");
         this.loginEmitter.emit({user});
-        console.log("ahahhahaa....");
         return user;
       })
       .map((res) => res.json())
